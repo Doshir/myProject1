@@ -1,0 +1,253 @@
+openapi: "3.0.2"
+info:
+  title: API get client info gateway
+  version: 1.0.0
+servers:
+  - url: https://get-client-info-gateway.{environment}
+    variables:
+      environment:
+        default: get-client-info-gateway.local
+        enum:
+          - get-client-info-gateway.local
+          - get-client-info-gateway.ddns.net
+      version:
+        default: v1
+        enum:
+          - v1
+paths:
+  /info:
+    get:
+      tags:
+        - clientInfo
+      description: Возвращает информацию о клиенте по его ID из СУБД Postgres
+      operationId: getClientInfo
+      parameters:
+        - name: x-platform-rquid
+          in: header
+          required: true
+          description: Уникальный идентификатор запроса
+          schema:
+            $ref: '#/components/schemas/RqUID'
+        - name: x-platform-rqtm
+          in: header
+          required: true
+          description: Дата и время запроса
+          schema:
+            $ref: '#/components/schemas/RqTm'
+        - name: x-platform-scname
+          in: header
+          required: true
+          description: Идентификатор системы отпрвителя запроса
+          schema:
+            $ref: '#/components/schemas/ScName'
+        - name: clientId
+          in: query
+          required: true
+          description: Идентификатор клиента
+          schema:
+            $ref: '#/components/schemas/ClientId'
+      responses:
+        '200':
+          description: OK
+          headers:
+            x-platform-rquid:
+              description: Уникальный идентификатор запроса
+              schema:
+                $ref: '#/components/schemas/RqUID'
+            x-platform-rqtm:
+              description: Дата и время запроса
+              schema:
+                $ref: '#/components/schemas/RqTm'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClientInfo'
+        '400':
+          description: Ошибка. Некорректный запрос
+          headers:
+            x-platform-rquid:
+              description: Уникальный идентификатор запроса
+              schema:
+                $ref: '#/components/schemas/RqUID'
+            x-platform-rqtm:
+              description: Дата и время запроса
+              schema:
+                $ref: '#/components/schemas/RqTm'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClientInfo'
+              example:
+                status:
+                  code: 1
+                  name: Not valid request
+                  description: Required field is missing
+        '429':
+          description: Ошибка. Превышено допустимое число запросов
+          headers:
+            x-platform-rquid:
+              description: Уникальный идентификатор запроса
+              schema:
+                $ref: '#/components/schemas/RqUID'
+            x-platform-rqtm:
+              description: Дата и время запроса
+              schema:
+                $ref: '#/components/schemas/RqTm'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClientInfo'
+              example:
+                status:
+                  code: 2
+                  name: Rate limit exceeded
+                  description: Too many requests
+        '500':
+          description: Ошибка. Сервис недоступен
+          headers:
+            x-platform-rquid:
+              description: Уникальный идентификатор запроса
+              schema:
+                $ref: '#/components/schemas/RqUID'
+            x-platform-rqtm:
+              description: Дата и время запроса
+              schema:
+                $ref: '#/components/schemas/RqTm'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClientInfo'
+              example:
+                status:
+                  code: 3
+                  name: System error
+                  description: Class. error description
+        '504':
+          description: Ошибка. Таймаут
+          headers:
+            x-platform-rquid:
+              description: Уникальный идентификатор запроса
+              schema:
+                $ref: '#/components/schemas/RqUID'
+            x-platform-rqtm:
+              description: Дата и время запроса
+              schema:
+                $ref: '#/components/schemas/RqTm'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClientInfo'
+              example:
+                status:
+                  code: 4
+                  name: Timeout error
+                  description: Timeout
+components:
+  schemas:
+    RqUID:
+      type: string
+      description: Уникальный идентификатор запроса
+      pattern: ^([0-9A-Za-z-]{36,36})$
+      example: baf1fa8c-4694-4251-9fb3-69e390bba983
+    RqTm:
+      type: string
+      description: Дата и время запроса
+      format: date-time
+      pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$
+      example: '2024-01-01T11:12:13Z'
+    ScName:
+      type: string
+      description: Идентификатор системы отправителя
+      pattern: ^[0-9A-Za-z]{0,10}$
+      example: local
+    ClientId:
+      type: string
+      description: Идентификтор клиента
+      maxLength: 50
+      pattern: ^[0-9]{0,50}$
+    Code:
+      type: string
+      description: Код ответа
+      maxLength: 1
+      format: int64
+      example: 0
+    CodeName:
+      type: string
+      description: Описание кода ответа
+      maxLength: 100
+      example: Success
+    CodeDescription:
+      type: string
+      description: Детальная информация по ответу, информация об ошибке
+      maxLength: 100
+      example: Successful response from server
+    Status:
+      type: object
+      description: Статус ответа
+      required:
+        - code
+        - name
+      properties:
+        code:
+          $ref: '#/components/schemas/Code'
+        name:
+          $ref: '#/components/schemas/CodeName'
+        description:
+          $ref: '#/components/schemas/CodeDescription'
+      additionalProperties: false
+    GetClientInfo:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+        payload:
+          $ref: '#/components/schemas/Payload'
+      required:
+        - status
+    Payload:
+      type: object
+      description: Информация о клиенте из кеша
+      required:
+        - firstName
+        - lastName
+      properties:
+        firstName:
+          $ref: '#/components/schemas/FirstName'
+        lastName:
+          $ref: '#/components/schemas/LastName'
+        middleName:
+          $ref: '#/components/schemas/MiddleName'
+        birthDate:
+          $ref: '#/components/schemas/BirthDate'
+        birthPlace:
+          $ref: '#/components/schemas/BirthPlace'
+      additionalProperties: false
+    FirstName:
+      type: string
+      description: Имя клиента
+      pattern: ^[a-zA-Zа-яА-Я-]{1, 50}$
+      maxLength: 50
+      example: Волкодав
+    LastName:
+      type: string
+      description: Имя клиента
+      pattern: ^[a-zA-Zа-яА-Я-]{1, 50}$
+      maxLength: 50
+      example: Володин
+    MiddleName:
+      type: string
+      description: Имя клиента
+      pattern: ^[a-zA-Zа-яА-Я-]{1, 50}$
+      maxLength: 50
+      example: Игоревич
+    BirthDate:
+      type: string
+      format: date
+      description: Дата рождения
+      pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$
+      example: 07-12-1996
+    BirthPlace:
+      type: string
+      description: Место рождения
+      pattern: ^[0-9A-Za-zА-Яа-я-,. \"\'()]$
+      example: Набережные Челны
