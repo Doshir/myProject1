@@ -54,26 +54,5 @@ public class GlobalExceptionHandler {
 
     }
 
-    @ExceptionHandler (ExceptionRequest.class)
-    public ResponseEntity<Status> handlerRequestTooMany(ExceptionRequest ex, WebRequest request){
-        Status status = new Status();
-        status.setCode("2");
-        status.setName("Rate limit exceeded");
-        status.setDescription("Too many requests");
-        String rquid = request.getHeader("x-platform-rquid");
-        String rqtm = request.getHeader("x-platform-rqtm");
-        String scName = request.getHeader("x-platform-scname");
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("x-platform-rquid",rquid);
-        httpHeaders.add("x-platform-rqtm",rqtm);
-        log.error("Too many requests " + rquid + " " + rqtm + " " + scName + "Exception " + status );
-        return new ResponseEntity<>(status,httpHeaders,HttpStatus.TOO_MANY_REQUESTS);
-    }
-
-
-
-
-
-
 
 }
