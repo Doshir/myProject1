@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
@@ -31,7 +32,7 @@ public class Client {
     private String middleName;
 
     @Column(name = "birthday")
-    private LocalDate birthday;
+    private Instant birthday;
 
     @Column(name = "birth_place")
     private String birthPlace;
@@ -68,11 +69,11 @@ public class Client {
         this.middleName = middleName;
     }
 
-    public LocalDate getBirthday() {
+    public Instant getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Instant birthday) {
         this.birthday = birthday;
     }
 
@@ -84,13 +85,25 @@ public class Client {
         this.birthPlace = birthPlace;
     }
 
-    public Client(Long id, String firstName, String lastName, String middleName, LocalDate birthday, String birthPlace) {
+    public Client(Long id, String firstName, String lastName, String middleName, Instant birthday, String birthPlace) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
         this.birthday = birthday;
         this.birthPlace = birthPlace;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", birthday=" + birthday +
+                ", birthPlace='" + birthPlace + '\'' +
+                '}';
     }
 
     @Override

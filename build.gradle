@@ -35,6 +35,11 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
     implementation 'org.slf4j:log4j-over-slf4j:1.7.32'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.2.5'
+    implementation('com.github.ben-manes.caffeine:caffeine')
+            {
+                exclude group: 'ch.qos.logback', module: 'logback-classic'
+                exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
+            }
 }
 
 tasks.named('test') {
@@ -49,16 +54,19 @@ openApiGenerate {
     modelPackage.set("org.example.model")
     invokerPackage.set("org.example.invoker")
     configOptions.set([
-            dateLibrary: "java17",
+            dateLibrary: "custom",
             interfaceOnly: "true",
-            typeMappings: "Date=LocalDateTime",
-            dateLibrary: "java8"
+
+            useSpringBoot3: "true"
+
+
     ])
 
-    typeMappings = ['string+date-time':'LocalDateTime']
-    importMappings = ['LocalDateTime':'java.time.LocalDateTime']
-
+    typeMappings = ['string+date-time':'Instant']
+    importMappings = ['Instant':'java.time.Instant']
 }
+
+
 
 
 
