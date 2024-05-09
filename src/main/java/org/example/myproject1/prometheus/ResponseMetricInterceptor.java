@@ -37,6 +37,4 @@ public class ResponseMetricInterceptor implements HandlerInterceptor {
         meterRegistry.counter("responses", "status", String.valueOf(response.getStatus())).increment();
         stopWatchThreadLocal.remove();
     }
-
-//
 }
