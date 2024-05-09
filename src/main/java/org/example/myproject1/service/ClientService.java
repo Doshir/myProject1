@@ -1,20 +1,20 @@
 package org.example.myproject1.service;
 
+import jakarta.validation.ConstraintViolationException;
 import org.example.model.GetClientInfo;
 import org.example.model.Payload;
 import org.example.model.Status;
 import org.example.myproject1.entity.Client;
 import org.example.myproject1.model.LogModel;
 import org.example.myproject1.repository.ClientRepository;
+import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.Instant;
 import java.util.Date;
 import java.util.Optional;
 
@@ -32,23 +32,12 @@ public class ClientService {
     private static final String STATUS_BAD_REQUEST_NAME = "Not valid request";
     private static final String STATUS_BAD_REQUEST_DESCRIPTION = "Required field is missing";
 
-    private static final String STATUS_RATE_LIMIT_EXCEEDED_CODE = "2";
-    private static final String STATUS_RATE_LIMIT_EXCEEDED_NAME = "Rate limit exceeded";
-    private static final String STATUS_RATE_LIMIT_EXCEEDED_DESCRIPTION = "Too many requests";
-
-    private static final String STATUS_INTERNAL_SERVER_ERROR_CODE = "3";
-    private static final String STATUS_INTERNAL_SERVER_ERROR_NAME = "System error";
-    private static final String STATUS_INTERNAL_SERVER_ERROR_DESCRIPTION = "Class. error description";
-
-    private static final String STATUS_GATEWAY_TIMEOUT_CODE = "4";
-    private static final String STATUS_GATEWAY_TIMEOUT_NAME = "Timeout error";
-    private static final String STATUS_GATEWAY_TIMEOUT_DESCRIPTION = "Timeout";
 
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 
-    public GetClientInfo getClientInfo(String RqUID, LocalDateTime RqTm, String ScName, String clientId) {
+    public GetClientInfo getClientInfo(String RqUID, Instant RqTm, String ScName, String clientId) {
 
         try {
             Optional<Client> client = clientRepository.findClientById(Long.valueOf(clientId));
@@ -76,35 +65,12 @@ public class ClientService {
                 return new GetClientInfo(status1);
 
             }
-        } catch (ResponseStatusException e) {
-            HttpStatus status = (HttpStatus) e.getStatusCode();
 
-             if (status == HttpStatus.TOO_MANY_REQUESTS) {
-                Status status1 = buildStatus(STATUS_RATE_LIMIT_EXCEEDED_CODE, STATUS_RATE_LIMIT_EXCEEDED_NAME, STATUS_RATE_LIMIT_EXCEEDED_DESCRIPTION);
-                log.error("Rate limit exceeded - RqUID: {}", status1);
-                return new GetClientInfo(status1);
-            } else if (status == HttpStatus.INTERNAL_SERVER_ERROR) {
-                Status status1 = buildStatus(STATUS_INTERNAL_SERVER_ERROR_CODE, STATUS_INTERNAL_SERVER_ERROR_NAME, STATUS_INTERNAL_SERVER_ERROR_DESCRIPTION);
-                log.error("Internal Server Error - RqUID: {}", status1);
-                return new GetClientInfo(status1);
-            } else if (status == HttpStatus.GATEWAY_TIMEOUT) {
-                Status status1 = buildStatus(STATUS_GATEWAY_TIMEOUT_CODE, STATUS_GATEWAY_TIMEOUT_NAME, STATUS_GATEWAY_TIMEOUT_DESCRIPTION);
-                log.error("Internal Server Error - RqUID: {}", status1);
-                log.error("Gateway Timeout - RqUID: {}", RqUID);
-                return new GetClientInfo(status1);
-            }
-
-            throw e;
-        } catch (NumberFormatException e) {
-            log.error("Invalid client ID - Client ID: {}, RqUID: {}", clientId, RqUID);
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid client ID");
-        } catch (Exception e) {
-            log.error("An error occurred while processing your request", e);
-
-            log.error("An error occurred while processing your request - RqUID: {}", RqUID);
-
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An error occurred while processing your request");
         }
+        catch (Exception e){
+            throw e;
+        }
+
     }
 
     public Payload maskClientData(Client client) {
@@ -112,7 +78,7 @@ public class ClientService {
                 .firstName(client.getFirstName())
                 .lastName(client.getLastName())
                 .middleName(client.getMiddleName())
-                .birthDate(client.getBirthday())
+                .birthDate(Date.from(client.getBirthday()))
                 .birthPlace(client.getBirthPlace());
     }
 
@@ -124,7 +90,7 @@ public class ClientService {
         return status;
     }
 
-    private void logRequestAndResponse(String RqUID, LocalDateTime RqTm, String ScName, String clientId) {
+    private void logRequestAndResponse(String RqUID, Instant RqTm, String ScName, String clientId) {
         log.info("Request received - RqUID: {}, RqTm: {}, ScName: {}, Client ID: {}", RqUID, RqTm, ScName, clientId);
     }
 
