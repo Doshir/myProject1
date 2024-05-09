@@ -6,15 +6,11 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.model.Status;
-import org.example.myproject1.entity.Client;
-import org.example.myproject1.exceptionHandler.ExceptionRequest;
-import org.example.myproject1.exceptionHandler.GlobalExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 import java.io.IOException;
-import java.rmi.server.ExportException;
 import java.util.concurrent.atomic.AtomicInteger;
 @WebFilter
 public class RequestThrottleFilter implements Filter {
