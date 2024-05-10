@@ -59,6 +59,7 @@ public class RequestThrottleFilter implements Filter {
             log.error("Too many requests " + rquidHeader + " " + rqtmHeader+ " " + scnameHeader + "Exception " + status );
             httpServletResponse.setHeader("x-platform-rquid", rquidHeader);
             httpServletResponse.setHeader("x-platform-rqtm", rqtmHeader);
+            httpServletResponse.setStatus(429);
             ObjectMapper objectMapper = new ObjectMapper();
             String statusJson = objectMapper.writeValueAsString(status);
             httpServletResponse.setContentType("application/json");
