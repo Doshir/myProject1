@@ -21,6 +21,7 @@ import java.util.Optional;
 @Service
 public class ClientService {
 
+
     private final ClientRepository clientRepository;
     private final Logger log = LoggerFactory.getLogger(ClientService.class);
 
@@ -36,6 +37,7 @@ public class ClientService {
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
+
 
     public GetClientInfo getClientInfo(String RqUID, Instant RqTm, String ScName, String clientId) {
 
