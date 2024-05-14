@@ -16,8 +16,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class RequestThrottleFilter implements Filter {
 
     private static final Logger log = LoggerFactory.getLogger(RequestThrottleFilter.class);
-    private final int MAX_REQUESTS_PER_MINUTE = 5;
-    private final long ONE_MINUTE_IN_MILLIS = 100 * 100;
+    private final int MAX_REQUESTS_PER_MINUTE = 10;
+    private final long ONE_MINUTE_IN_MILLIS = 60 * 1000;
 
     private AtomicInteger requestCount = new AtomicInteger(0);
     private long startTime = System.currentTimeMillis();
