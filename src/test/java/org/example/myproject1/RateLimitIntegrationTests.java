@@ -24,4 +24,5 @@ public class RateLimitIntegrationTests {
 
         assertEquals(HttpStatus.TOO_MANY_REQUESTS, response.getStatusCode());
     }
+    
 }
