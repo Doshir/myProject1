@@ -1,6 +1,7 @@
 package org.example.myproject1.controller;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import org.example.api.InfoApi;
@@ -22,12 +23,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @RestController
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ClientController implements InfoApi {
-
     private final ClientService clientService;
 
-    public ClientController(ClientService clientService) {
+    public ClientController( ClientService clientService) {
         this.clientService = clientService;
     }
     @Override
@@ -49,6 +48,7 @@ public class ClientController implements InfoApi {
             String clientId
     )
     {
+
         GetClientInfo clientInfo = clientService.getClientInfo(xPlatformRquid, xPlatformRqtm, xPlatformScname, clientId);
         return new ResponseEntity<>(clientInfo, HttpStatus.OK);
     }
