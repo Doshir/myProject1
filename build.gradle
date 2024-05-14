@@ -32,8 +32,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'io.micrometer:micrometer-registry-prometheus'
-    implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
     implementation 'org.slf4j:log4j-over-slf4j:1.7.32'
+    testImplementation 'com.h2database:h2:2.2.220'
+    testImplementation 'org.mockito:mockito-core:4.0.0'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.30'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.2.5'
     implementation('com.github.ben-manes.caffeine:caffeine')
             {
