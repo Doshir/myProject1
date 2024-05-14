@@ -2,25 +2,34 @@ package org.example.myproject1.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.*;
-import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.model.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
-@WebFilter
-public class RequestThrottleFilter implements Filter {
+public class RequestFilter implements Filter {
 
-    private static final Logger log = LoggerFactory.getLogger(RequestThrottleFilter.class);
-    private final int MAX_REQUESTS_PER_MINUTE = 10;
-    private final long ONE_MINUTE_IN_MILLIS = 60 * 1000;
+
+    private static final Logger log = LoggerFactory.getLogger(RequestFilter.class);
+    @Value("${request.throttle.maxRequestsPerMinute}")
+    private int maxRequestsPerMinute;
+
+    @Value("${request.throttle.timeFrameInMillis}")
+    private long timeFrameInMillis;
 
     private AtomicInteger requestCount = new AtomicInteger(0);
     private long startTime = System.currentTimeMillis();
+
+    public RequestFilter(int maxRequestsPerMinute, long timeFrameInMillis) {
+        this.maxRequestsPerMinute = maxRequestsPerMinute;
+        this.timeFrameInMillis = timeFrameInMillis;
+    }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -34,12 +43,12 @@ public class RequestThrottleFilter implements Filter {
 
 
 
-        if (currentTime - startTime >= ONE_MINUTE_IN_MILLIS) {
+        if (currentTime - startTime >= timeFrameInMillis) {
             requestCount.set(0);
             startTime = currentTime;
         }
 
-        if (requestCount.incrementAndGet() <= MAX_REQUESTS_PER_MINUTE) {
+        if (requestCount.incrementAndGet() <= maxRequestsPerMinute) {
 
             filterChain.doFilter(servletRequest, servletResponse);
         }

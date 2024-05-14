@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
         httpHeaders.add("x-platform-rquid",rquid);
         httpHeaders.add("x-platform-rqtm",rqtm);
         log.error("Time out " + rquid + " " + rqtm + " " + scName + "Exception " + status );
-        return new ResponseEntity<>(status,httpHeaders,HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(status,httpHeaders,HttpStatus.GATEWAY_TIMEOUT);
     }
 
 
