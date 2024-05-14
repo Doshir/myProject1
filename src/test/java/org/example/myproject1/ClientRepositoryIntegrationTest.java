@@ -28,5 +28,6 @@ public class ClientRepositoryIntegrationTest {
         Optional<Client> found = clientRepository.findClientById(1L);
         assertTrue(found.isPresent());
         assertEquals(1L, found.get().getId());
+
     }
 }
