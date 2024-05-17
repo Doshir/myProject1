@@ -1,9 +1,0 @@
-springdoc:
-  swagger-ui:
-    url:/get-client-info.yaml
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "health,info,prometheus"
-
