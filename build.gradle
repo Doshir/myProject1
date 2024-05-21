@@ -37,11 +37,10 @@ dependencies {
     testImplementation 'org.slf4j:slf4j-simple:1.7.30'
     testImplementation group: 'com.h2database', name: 'h2', version: '2.2.224'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.2.5'
-    implementation('com.github.ben-manes.caffeine:caffeine')
-            {
-                exclude group: 'ch.qos.logback', module: 'logback-classic'
-                exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
-            }
+    implementation('com.github.ben-manes.caffeine:caffeine') {
+        exclude group: 'ch.qos.logback', module: 'logback-classic'
+        exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
+    }
 }
 
 tasks.named('test') {
@@ -58,20 +57,12 @@ openApiGenerate {
     configOptions.set([
             dateLibrary: "custom",
             interfaceOnly: "true",
-
             useSpringBoot3: "true"
-
-
     ])
 
     typeMappings = ['string+date-time':'Instant']
     importMappings = ['Instant':'java.time.Instant']
 }
-
-
-
-
-
 
 compileJava.dependsOn tasks.openApiGenerate
 sourceSets {
@@ -80,4 +71,12 @@ sourceSets {
             srcDir("$buildDir/generated/src/main/java")
         }
     }
+}
+
+ext {
+    swaggerUiUrl = '/get-client-info.yaml'
+}
+
+bootRun {
+    systemProperty 'springdoc.swagger-ui.url', swaggerUiUrl
 }
