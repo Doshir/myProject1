@@ -1,5 +1,6 @@
 package org.example.myproject1;
 
+import org.example.myproject1.entity.Client;
 import org.example.myproject1.repository.ClientRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.http.*;
 import org.springframework.test.annotation.DirtiesContext;
 
 import java.time.Instant;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -24,12 +26,24 @@ public class RateLimitIntegrationTests {
     @MockBean
     private ClientRepository clientRepository;
 
+    private HttpHeaders createHeaders() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set("x-platform-rquid", "123e4567-e89b-12d3-a456-426614174000");
+        headers.set("x-platform-rqtm", Instant.now().toString());
+        headers.set("x-platform-scname", "testApp");
+        return headers;
+    }
+
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void whenTooManyRequests_thenRateLimitExceeded() throws InterruptedException {
+        HttpHeaders headers = createHeaders();
+        HttpEntity<String> entity = new HttpEntity<>("", headers);
+
         ResponseEntity<String> response = null;
         for (int i = 0; i < 11; i++) {
-            response = restTemplate.getForEntity("/info?clientId=1", String.class);
+            response = restTemplate.exchange("/info?clientId=1", HttpMethod.GET, entity, String.class);
         }
 
         assertEquals(HttpStatus.TOO_MANY_REQUESTS, response.getStatusCode());
@@ -46,11 +60,11 @@ public class RateLimitIntegrationTests {
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void whenValidRequest_thenStatus200() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("x-platform-rquid", "123e4567-e89b-12d3-a456-426614174000");
-        headers.set("x-platform-rqtm", Instant.now().toString());
-        headers.set("x-platform-scname", "testApp");
+        // Mocking repository behaviour
+        Client mockClient = new Client(1L, "John", "Doe", "Smith", Instant.now(), "New York");
+        when(clientRepository.findClientById(1L)).thenReturn(Optional.of(mockClient));
+
+        HttpHeaders headers = createHeaders();
         HttpEntity<String> entity = new HttpEntity<>("", headers);
         ResponseEntity<String> response = restTemplate.exchange("/info?clientId=1", HttpMethod.GET, entity, String.class);
 
@@ -66,8 +80,11 @@ public class RateLimitIntegrationTests {
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void whenRequestIsInvalid_thenStatus400() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpHeaders headers = createHeaders();
+        headers.set("x-platform-rquid", "test-rquid");
+        headers.set("x-platform-rqtm", "test-rqtm");
+        headers.set("x-platform-scname", "test-scname");
+
         HttpEntity<String> entity = new HttpEntity<>("", headers);
 
         ResponseEntity<String> response = restTemplate.exchange("/info?clientId=1", HttpMethod.GET, entity, String.class);
@@ -84,11 +101,7 @@ public class RateLimitIntegrationTests {
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
     public void whenRequestTimesOut_thenStatus504() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("x-platform-rquid", "123e4567-e89b-12d3-a456-426614174000");
-        headers.set("x-platform-rqtm", Instant.now().toString());
-        headers.set("x-platform-scname", "testApp");
+        HttpHeaders headers = createHeaders();
         HttpEntity<String> entity = new HttpEntity<>("", headers);
 
         when(clientRepository.findClientById(1L)).thenThrow(new DataAccessResourceFailureException("Data is not allowed"));

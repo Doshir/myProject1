@@ -32,9 +32,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'io.micrometer:micrometer-registry-prometheus'
-    implementation 'org.slf4j:log4j-over-slf4j:1.7.32'
+    implementation 'ch.qos.logback:logback-classic:1.4.12'
+    implementation 'org.codehaus.janino:janino:3.1.6'
+    testImplementation 'org.codehaus.janino:janino:3.1.6'
+    testImplementation 'ch.qos.logback:logback-classic:1.4.12'
     testImplementation 'org.mockito:mockito-core:4.0.0'
-    testImplementation 'org.slf4j:slf4j-simple:1.7.30'
     testImplementation group: 'com.h2database', name: 'h2', version: '2.2.224'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.2.5'
     implementation('com.github.ben-manes.caffeine:caffeine') {
