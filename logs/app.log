@@ -1,0 +1,548 @@
+2024-05-22 11:16:01 - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-22 11:16:01 - Starting RateLimitIntegrationTests using Java 21.0.3 with PID 11080 (started by makar in E:\myProject1)
+2024-05-22 11:16:01 - No active profile set, falling back to 1 default profile: "default"
+2024-05-22 11:16:03 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22 11:16:03 - Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
+2024-05-22 11:16:04 - Tomcat initialized with port 0 (http)
+2024-05-22 11:16:04 - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:16:04 - Starting service [Tomcat]
+2024-05-22 11:16:04 - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22 11:16:04 - Initializing Spring embedded WebApplicationContext
+2024-05-22 11:16:04 - Root WebApplicationContext: initialization completed in 2664 ms
+2024-05-22 11:16:04 - HikariPool-1 - Starting...
+2024-05-22 11:16:05 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-05-22 11:16:05 - HikariPool-1 - Start completed.
+2024-05-22 11:16:05 - Set default schema name to PUBLIC
+2024-05-22 11:16:05 - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:05 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:05 - Successfully acquired change log lock
+2024-05-22 11:16:05 - Using deploymentId: 6365765802
+2024-05-22 11:16:05 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:05 - Custom SQL executed
+2024-05-22 11:16:05 - ChangeSet db/changelog/changeset/create-client-table.sql::raw::includeAll ran successfully in 24ms
+2024-05-22 11:16:05 - UPDATE SUMMARY
+2024-05-22 11:16:05 - Run:                          1
+2024-05-22 11:16:05 - Previously run:               0
+2024-05-22 11:16:05 - Filtered out:                 0
+2024-05-22 11:16:05 - -------------------------------
+2024-05-22 11:16:05 - Total change sets:            1
+2024-05-22 11:16:05 - Update summary generated
+2024-05-22 11:16:05 - Update command completed successfully.
+2024-05-22 11:16:05 - Successfully released change log lock
+2024-05-22 11:16:05 - Command execution complete
+2024-05-22 11:16:06 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22 11:16:06 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-22 11:16:06 - HHH000026: Second-level cache disabled
+2024-05-22 11:16:06 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22 11:16:07 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-22 11:16:07 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:16:07 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22 11:16:08 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-05-22 11:16:08 - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:16:08 - Tomcat started on port 49245 (http) with context path ''
+2024-05-22 11:16:08 - Started RateLimitIntegrationTests in 7.121 seconds (process running for 8.419)
+2024-05-22 11:16:08 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22 11:16:08 - Initializing Servlet 'dispatcherServlet'
+2024-05-22 11:16:09 - Completed initialization in 1 ms
+2024-05-22 11:16:09 - Time out 123e4567-e89b-12d3-a456-426614174000 2024-05-22T08:16:08.830754500Z testAppException class Status {
+    code: 4
+    name: Timeout error
+    description: TimeOut
+}
+2024-05-22 11:16:09 - Stopping ProtocolHandler ["http-nio-auto-1-49245"]
+2024-05-22 11:16:09 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:16:09 - HikariPool-1 - Shutdown initiated...
+2024-05-22 11:16:09 - HikariPool-1 - Shutdown completed.
+2024-05-22 11:16:09 - Starting RateLimitIntegrationTests using Java 21.0.3 with PID 11080 (started by makar in E:\myProject1)
+2024-05-22 11:16:09 - No active profile set, falling back to 1 default profile: "default"
+2024-05-22 11:16:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22 11:16:10 - Finished Spring Data repository scanning in 11 ms. Found 1 JPA repository interface.
+2024-05-22 11:16:10 - Tomcat initialized with port 0 (http)
+2024-05-22 11:16:10 - Initializing ProtocolHandler ["http-nio-auto-2"]
+2024-05-22 11:16:10 - Starting service [Tomcat]
+2024-05-22 11:16:10 - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22 11:16:10 - Initializing Spring embedded WebApplicationContext
+2024-05-22 11:16:10 - Root WebApplicationContext: initialization completed in 708 ms
+2024-05-22 11:16:10 - HikariPool-2 - Starting...
+2024-05-22 11:16:10 - HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2024-05-22 11:16:10 - HikariPool-2 - Start completed.
+2024-05-22 11:16:10 - Set default schema name to PUBLIC
+2024-05-22 11:16:10 - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:10 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:10 - Successfully acquired change log lock
+2024-05-22 11:16:10 - Using deploymentId: 6365770778
+2024-05-22 11:16:10 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:10 - Custom SQL executed
+2024-05-22 11:16:10 - ChangeSet db/changelog/changeset/create-client-table.sql::raw::includeAll ran successfully in 3ms
+2024-05-22 11:16:10 - UPDATE SUMMARY
+2024-05-22 11:16:10 - Run:                          1
+2024-05-22 11:16:10 - Previously run:               0
+2024-05-22 11:16:10 - Filtered out:                 0
+2024-05-22 11:16:10 - -------------------------------
+2024-05-22 11:16:10 - Total change sets:            1
+2024-05-22 11:16:10 - Update summary generated
+2024-05-22 11:16:10 - Update command completed successfully.
+2024-05-22 11:16:10 - Successfully released change log lock
+2024-05-22 11:16:10 - Command execution complete
+2024-05-22 11:16:10 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22 11:16:10 - HHH000026: Second-level cache disabled
+2024-05-22 11:16:10 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22 11:16:10 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-22 11:16:10 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:16:10 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22 11:16:11 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-05-22 11:16:11 - Starting ProtocolHandler ["http-nio-auto-2"]
+2024-05-22 11:16:11 - Tomcat started on port 49249 (http) with context path ''
+2024-05-22 11:16:11 - Started RateLimitIntegrationTests in 1.566 seconds (process running for 11.194)
+2024-05-22 11:16:11 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22 11:16:11 - Initializing Servlet 'dispatcherServlet'
+2024-05-22 11:16:11 - Completed initialization in 1 ms
+2024-05-22 11:16:11 - Bad request test-rquid test-rqtm test-scnameException class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:11 - Stopping ProtocolHandler ["http-nio-auto-2-49249"]
+2024-05-22 11:16:11 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:16:11 - HikariPool-2 - Shutdown initiated...
+2024-05-22 11:16:11 - HikariPool-2 - Shutdown completed.
+2024-05-22 11:16:11 - Starting RateLimitIntegrationTests using Java 21.0.3 with PID 11080 (started by makar in E:\myProject1)
+2024-05-22 11:16:11 - No active profile set, falling back to 1 default profile: "default"
+2024-05-22 11:16:11 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22 11:16:11 - Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interface.
+2024-05-22 11:16:12 - Tomcat initialized with port 0 (http)
+2024-05-22 11:16:12 - Initializing ProtocolHandler ["http-nio-auto-3"]
+2024-05-22 11:16:12 - Starting service [Tomcat]
+2024-05-22 11:16:12 - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22 11:16:12 - Initializing Spring embedded WebApplicationContext
+2024-05-22 11:16:12 - Root WebApplicationContext: initialization completed in 511 ms
+2024-05-22 11:16:12 - HikariPool-3 - Starting...
+2024-05-22 11:16:12 - HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=SA
+2024-05-22 11:16:12 - HikariPool-3 - Start completed.
+2024-05-22 11:16:12 - Set default schema name to PUBLIC
+2024-05-22 11:16:12 - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:12 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:12 - Successfully acquired change log lock
+2024-05-22 11:16:12 - Using deploymentId: 6365772214
+2024-05-22 11:16:12 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:12 - Custom SQL executed
+2024-05-22 11:16:12 - ChangeSet db/changelog/changeset/create-client-table.sql::raw::includeAll ran successfully in 3ms
+2024-05-22 11:16:12 - UPDATE SUMMARY
+2024-05-22 11:16:12 - Run:                          1
+2024-05-22 11:16:12 - Previously run:               0
+2024-05-22 11:16:12 - Filtered out:                 0
+2024-05-22 11:16:12 - -------------------------------
+2024-05-22 11:16:12 - Total change sets:            1
+2024-05-22 11:16:12 - Update summary generated
+2024-05-22 11:16:12 - Update command completed successfully.
+2024-05-22 11:16:12 - Successfully released change log lock
+2024-05-22 11:16:12 - Command execution complete
+2024-05-22 11:16:12 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22 11:16:12 - HHH000026: Second-level cache disabled
+2024-05-22 11:16:12 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22 11:16:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-22 11:16:12 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:16:12 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22 11:16:12 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-05-22 11:16:12 - Starting ProtocolHandler ["http-nio-auto-3"]
+2024-05-22 11:16:12 - Tomcat started on port 49253 (http) with context path ''
+2024-05-22 11:16:12 - Started RateLimitIntegrationTests in 1.117 seconds (process running for 12.412)
+2024-05-22 11:16:12 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22 11:16:12 - Initializing Servlet 'dispatcherServlet'
+2024-05-22 11:16:12 - Completed initialization in 1 ms
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:16:12 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:16:12 - Too many requests 123e4567-e89b-12d3-a456-426614174000 2024-05-22T08:16:12.649538100Z testAppException class Status {
+    code: 2
+    name: Rate limit exceeded
+    description: Too many requests
+}
+2024-05-22 11:16:13 - Stopping ProtocolHandler ["http-nio-auto-3-49253"]
+2024-05-22 11:16:13 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:16:13 - HikariPool-3 - Shutdown initiated...
+2024-05-22 11:16:13 - HikariPool-3 - Shutdown completed.
+2024-05-22 11:16:13 - Starting RateLimitIntegrationTests using Java 21.0.3 with PID 11080 (started by makar in E:\myProject1)
+2024-05-22 11:16:13 - No active profile set, falling back to 1 default profile: "default"
+2024-05-22 11:16:13 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22 11:16:13 - Finished Spring Data repository scanning in 6 ms. Found 1 JPA repository interface.
+2024-05-22 11:16:13 - Tomcat initialized with port 0 (http)
+2024-05-22 11:16:13 - Initializing ProtocolHandler ["http-nio-auto-4"]
+2024-05-22 11:16:13 - Starting service [Tomcat]
+2024-05-22 11:16:13 - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22 11:16:13 - Initializing Spring embedded WebApplicationContext
+2024-05-22 11:16:13 - Root WebApplicationContext: initialization completed in 350 ms
+2024-05-22 11:16:13 - HikariPool-4 - Starting...
+2024-05-22 11:16:13 - HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:testdb user=SA
+2024-05-22 11:16:13 - HikariPool-4 - Start completed.
+2024-05-22 11:16:13 - Set default schema name to PUBLIC
+2024-05-22 11:16:13 - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:13 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:13 - Successfully acquired change log lock
+2024-05-22 11:16:13 - Using deploymentId: 6365773816
+2024-05-22 11:16:13 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:16:13 - Custom SQL executed
+2024-05-22 11:16:13 - ChangeSet db/changelog/changeset/create-client-table.sql::raw::includeAll ran successfully in 3ms
+2024-05-22 11:16:13 - UPDATE SUMMARY
+2024-05-22 11:16:13 - Run:                          1
+2024-05-22 11:16:13 - Previously run:               0
+2024-05-22 11:16:13 - Filtered out:                 0
+2024-05-22 11:16:13 - -------------------------------
+2024-05-22 11:16:13 - Total change sets:            1
+2024-05-22 11:16:13 - Update summary generated
+2024-05-22 11:16:13 - Update command completed successfully.
+2024-05-22 11:16:13 - Successfully released change log lock
+2024-05-22 11:16:13 - Command execution complete
+2024-05-22 11:16:13 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22 11:16:13 - HHH000026: Second-level cache disabled
+2024-05-22 11:16:13 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22 11:16:13 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-22 11:16:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:16:13 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22 11:16:14 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-05-22 11:16:14 - Starting ProtocolHandler ["http-nio-auto-4"]
+2024-05-22 11:16:14 - Tomcat started on port 49256 (http) with context path ''
+2024-05-22 11:16:14 - Started RateLimitIntegrationTests in 1.102 seconds (process running for 14.192)
+2024-05-22 11:16:14 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22 11:16:14 - Initializing Servlet 'dispatcherServlet'
+2024-05-22 11:16:14 - Completed initialization in 1 ms
+2024-05-22 11:16:14 - Request received - RqUID: 123e4567-e89b-12d3-a456-426614174000, RqTm: 2024-05-22T08:16:14.439207900Z, ScName: testApp, Client ID: 1
+2024-05-22 11:16:14 - Response sent with status '200' - Payload: {firstName='J***', lastName='D**', middleName='S****', birthday='2*****************************', birthPlace='N*******'}
+2024-05-22 11:16:14 - Stopping ProtocolHandler ["http-nio-auto-4-49256"]
+2024-05-22 11:16:14 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:16:14 - HikariPool-4 - Shutdown initiated...
+2024-05-22 11:16:14 - HikariPool-4 - Shutdown completed.
+2024-05-22 11:17:11 - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-22 11:17:11 - Starting RateLimitIntegrationTests using Java 21.0.3 with PID 10708 (started by makar in E:\myProject1)
+2024-05-22 11:17:11 - No active profile set, falling back to 1 default profile: "default"
+2024-05-22 11:17:12 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22 11:17:12 - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2024-05-22 11:17:14 - Tomcat initialized with port 0 (http)
+2024-05-22 11:17:14 - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:17:14 - Starting service [Tomcat]
+2024-05-22 11:17:14 - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22 11:17:14 - Initializing Spring embedded WebApplicationContext
+2024-05-22 11:17:14 - Root WebApplicationContext: initialization completed in 2776 ms
+2024-05-22 11:17:14 - HikariPool-1 - Starting...
+2024-05-22 11:17:14 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-05-22 11:17:15 - HikariPool-1 - Start completed.
+2024-05-22 11:17:15 - Set default schema name to PUBLIC
+2024-05-22 11:17:15 - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-05-22 11:17:15 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:17:15 - Successfully acquired change log lock
+2024-05-22 11:17:15 - Using deploymentId: 6365835500
+2024-05-22 11:17:15 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:17:15 - Custom SQL executed
+2024-05-22 11:17:15 - ChangeSet db/changelog/changeset/create-client-table.sql::raw::includeAll ran successfully in 17ms
+2024-05-22 11:17:15 - UPDATE SUMMARY
+2024-05-22 11:17:15 - Run:                          1
+2024-05-22 11:17:15 - Previously run:               0
+2024-05-22 11:17:15 - Filtered out:                 0
+2024-05-22 11:17:15 - -------------------------------
+2024-05-22 11:17:15 - Total change sets:            1
+2024-05-22 11:17:15 - Update summary generated
+2024-05-22 11:17:15 - Update command completed successfully.
+2024-05-22 11:17:15 - Successfully released change log lock
+2024-05-22 11:17:15 - Command execution complete
+2024-05-22 11:17:15 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22 11:17:15 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-22 11:17:15 - HHH000026: Second-level cache disabled
+2024-05-22 11:17:15 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22 11:17:16 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-22 11:17:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:17:16 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22 11:17:18 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-05-22 11:17:18 - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:17:18 - Tomcat started on port 49284 (http) with context path ''
+2024-05-22 11:17:18 - Started RateLimitIntegrationTests in 6.983 seconds (process running for 8.299)
+2024-05-22 11:17:18 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22 11:17:18 - Initializing Servlet 'dispatcherServlet'
+2024-05-22 11:17:18 - Completed initialization in 1 ms
+2024-05-22 11:17:18 - Request received - RqUID: 123e4567-e89b-12d3-a456-426614174000, RqTm: 2024-05-22T08:17:18.383598400Z, ScName: testApp, Client ID: 1
+2024-05-22 11:17:18 - Response sent with status '200' - Payload: {firstName='J***', lastName='D**', middleName='S****', birthday='2**************************', birthPlace='N*******'}
+2024-05-22 11:17:19 - Stopping ProtocolHandler ["http-nio-auto-1-49284"]
+2024-05-22 11:17:19 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:17:19 - HikariPool-1 - Shutdown initiated...
+2024-05-22 11:17:19 - HikariPool-1 - Shutdown completed.
+2024-05-22 11:17:35 - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-22 11:17:35 - Starting RateLimitIntegrationTests using Java 21.0.3 with PID 15228 (started by makar in E:\myProject1)
+2024-05-22 11:17:35 - No active profile set, falling back to 1 default profile: "default"
+2024-05-22 11:17:36 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22 11:17:36 - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2024-05-22 11:17:38 - Tomcat initialized with port 0 (http)
+2024-05-22 11:17:38 - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:17:38 - Starting service [Tomcat]
+2024-05-22 11:17:38 - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22 11:17:38 - Initializing Spring embedded WebApplicationContext
+2024-05-22 11:17:38 - Root WebApplicationContext: initialization completed in 2724 ms
+2024-05-22 11:17:38 - HikariPool-1 - Starting...
+2024-05-22 11:17:38 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-05-22 11:17:38 - HikariPool-1 - Start completed.
+2024-05-22 11:17:38 - Set default schema name to PUBLIC
+2024-05-22 11:17:39 - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-05-22 11:17:39 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:17:39 - Successfully acquired change log lock
+2024-05-22 11:17:39 - Using deploymentId: 6365859341
+2024-05-22 11:17:39 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:17:39 - Custom SQL executed
+2024-05-22 11:17:39 - ChangeSet db/changelog/changeset/create-client-table.sql::raw::includeAll ran successfully in 16ms
+2024-05-22 11:17:39 - UPDATE SUMMARY
+2024-05-22 11:17:39 - Run:                          1
+2024-05-22 11:17:39 - Previously run:               0
+2024-05-22 11:17:39 - Filtered out:                 0
+2024-05-22 11:17:39 - -------------------------------
+2024-05-22 11:17:39 - Total change sets:            1
+2024-05-22 11:17:39 - Update summary generated
+2024-05-22 11:17:39 - Update command completed successfully.
+2024-05-22 11:17:39 - Successfully released change log lock
+2024-05-22 11:17:39 - Command execution complete
+2024-05-22 11:17:39 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22 11:17:39 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-22 11:17:39 - HHH000026: Second-level cache disabled
+2024-05-22 11:17:39 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22 11:17:40 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-22 11:17:40 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:17:40 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22 11:17:41 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-05-22 11:17:41 - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:17:41 - Tomcat started on port 49295 (http) with context path ''
+2024-05-22 11:17:41 - Started RateLimitIntegrationTests in 6.739 seconds (process running for 8.023)
+2024-05-22 11:17:42 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22 11:17:42 - Initializing Servlet 'dispatcherServlet'
+2024-05-22 11:17:42 - Completed initialization in 1 ms
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Client not found - Client ID: 1, RqUID: 123e4567-e89b-12d3-a456-426614174000
+2024-05-22 11:17:42 - Bad Request - RqUID: class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:17:42 - Too many requests 123e4567-e89b-12d3-a456-426614174000 2024-05-22T08:17:42.066962500Z testAppException class Status {
+    code: 2
+    name: Rate limit exceeded
+    description: Too many requests
+}
+2024-05-22 11:17:43 - Stopping ProtocolHandler ["http-nio-auto-1-49295"]
+2024-05-22 11:17:43 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:17:43 - HikariPool-1 - Shutdown initiated...
+2024-05-22 11:17:43 - HikariPool-1 - Shutdown completed.
+2024-05-22 11:18:07 - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-22 11:18:07 - Starting RateLimitIntegrationTests using Java 21.0.3 with PID 1304 (started by makar in E:\myProject1)
+2024-05-22 11:18:07 - No active profile set, falling back to 1 default profile: "default"
+2024-05-22 11:18:08 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22 11:18:08 - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2024-05-22 11:18:09 - Tomcat initialized with port 0 (http)
+2024-05-22 11:18:09 - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:18:09 - Starting service [Tomcat]
+2024-05-22 11:18:09 - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22 11:18:09 - Initializing Spring embedded WebApplicationContext
+2024-05-22 11:18:09 - Root WebApplicationContext: initialization completed in 2633 ms
+2024-05-22 11:18:10 - HikariPool-1 - Starting...
+2024-05-22 11:18:10 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-05-22 11:18:10 - HikariPool-1 - Start completed.
+2024-05-22 11:18:10 - Set default schema name to PUBLIC
+2024-05-22 11:18:10 - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-05-22 11:18:10 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:18:10 - Successfully acquired change log lock
+2024-05-22 11:18:10 - Using deploymentId: 6365890788
+2024-05-22 11:18:10 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:18:10 - Custom SQL executed
+2024-05-22 11:18:10 - ChangeSet db/changelog/changeset/create-client-table.sql::raw::includeAll ran successfully in 16ms
+2024-05-22 11:18:10 - UPDATE SUMMARY
+2024-05-22 11:18:10 - Run:                          1
+2024-05-22 11:18:10 - Previously run:               0
+2024-05-22 11:18:10 - Filtered out:                 0
+2024-05-22 11:18:10 - -------------------------------
+2024-05-22 11:18:10 - Total change sets:            1
+2024-05-22 11:18:10 - Update summary generated
+2024-05-22 11:18:10 - Update command completed successfully.
+2024-05-22 11:18:10 - Successfully released change log lock
+2024-05-22 11:18:10 - Command execution complete
+2024-05-22 11:18:10 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22 11:18:11 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-22 11:18:11 - HHH000026: Second-level cache disabled
+2024-05-22 11:18:11 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22 11:18:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-22 11:18:12 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:18:12 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22 11:18:14 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-05-22 11:18:14 - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:18:14 - Tomcat started on port 49309 (http) with context path ''
+2024-05-22 11:18:14 - Started RateLimitIntegrationTests in 7.896 seconds (process running for 9.252)
+2024-05-22 11:18:15 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22 11:18:15 - Initializing Servlet 'dispatcherServlet'
+2024-05-22 11:18:15 - Completed initialization in 1 ms
+2024-05-22 11:18:15 - Bad request test-rquid test-rqtm test-scnameException class Status {
+    code: 1
+    name: Not valid request
+    description: Required field is missing
+}
+2024-05-22 11:18:15 - Stopping ProtocolHandler ["http-nio-auto-1-49309"]
+2024-05-22 11:18:15 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:18:15 - HikariPool-1 - Shutdown initiated...
+2024-05-22 11:18:15 - HikariPool-1 - Shutdown completed.
+2024-05-22 11:19:08 - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-22 11:19:08 - Starting RateLimitIntegrationTests using Java 21.0.3 with PID 15952 (started by makar in E:\myProject1)
+2024-05-22 11:19:08 - No active profile set, falling back to 1 default profile: "default"
+2024-05-22 11:19:09 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22 11:19:09 - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2024-05-22 11:19:11 - Tomcat initialized with port 0 (http)
+2024-05-22 11:19:11 - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:19:11 - Starting service [Tomcat]
+2024-05-22 11:19:11 - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22 11:19:11 - Initializing Spring embedded WebApplicationContext
+2024-05-22 11:19:11 - Root WebApplicationContext: initialization completed in 2693 ms
+2024-05-22 11:19:11 - HikariPool-1 - Starting...
+2024-05-22 11:19:11 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-05-22 11:19:11 - HikariPool-1 - Start completed.
+2024-05-22 11:19:11 - Set default schema name to PUBLIC
+2024-05-22 11:19:12 - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-05-22 11:19:12 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:19:12 - Successfully acquired change log lock
+2024-05-22 11:19:12 - Using deploymentId: 6365952362
+2024-05-22 11:19:12 - Reading from PUBLIC.DATABASECHANGELOG
+2024-05-22 11:19:12 - Custom SQL executed
+2024-05-22 11:19:12 - ChangeSet db/changelog/changeset/create-client-table.sql::raw::includeAll ran successfully in 18ms
+2024-05-22 11:19:12 - UPDATE SUMMARY
+2024-05-22 11:19:12 - Run:                          1
+2024-05-22 11:19:12 - Previously run:               0
+2024-05-22 11:19:12 - Filtered out:                 0
+2024-05-22 11:19:12 - -------------------------------
+2024-05-22 11:19:12 - Total change sets:            1
+2024-05-22 11:19:12 - Update summary generated
+2024-05-22 11:19:12 - Update command completed successfully.
+2024-05-22 11:19:12 - Successfully released change log lock
+2024-05-22 11:19:12 - Command execution complete
+2024-05-22 11:19:12 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22 11:19:12 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-22 11:19:12 - HHH000026: Second-level cache disabled
+2024-05-22 11:19:12 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22 11:19:13 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-22 11:19:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:19:13 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22 11:19:14 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2024-05-22 11:19:14 - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-05-22 11:19:14 - Tomcat started on port 49328 (http) with context path ''
+2024-05-22 11:19:14 - Started RateLimitIntegrationTests in 6.558 seconds (process running for 7.901)
+2024-05-22 11:19:15 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22 11:19:15 - Initializing Servlet 'dispatcherServlet'
+2024-05-22 11:19:15 - Completed initialization in 1 ms
+2024-05-22 11:19:15 - Time out 123e4567-e89b-12d3-a456-426614174000 2024-05-22T08:19:14.975915400Z testAppException class Status {
+    code: 4
+    name: Timeout error
+    description: TimeOut
+}
+2024-05-22 11:19:15 - Stopping ProtocolHandler ["http-nio-auto-1-49328"]
+2024-05-22 11:19:15 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22 11:19:15 - HikariPool-1 - Shutdown initiated...
+2024-05-22 11:19:15 - HikariPool-1 - Shutdown completed.
